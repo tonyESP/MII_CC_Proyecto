@@ -1,4 +1,4 @@
-#Hito 2
+# Hito 2
 
 Copiamos todos estos archivos salvo "README.MD" en la carpeta home.
 
