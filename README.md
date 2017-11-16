@@ -10,6 +10,7 @@ El proyecto consta de:
 3. Servidor de juego, una api PHP.
 4. Base de datos Mysql.
 5. Aplicación Android.
+
 # Arquitectura
 Se utilizará una arquitectura basada en microservicios.
 #Provisionamiento
