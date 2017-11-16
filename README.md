@@ -5,11 +5,11 @@ Juego geolocalizado basado en resolver preguntas que otros usuarios “dejaran c
 Desarrollar un juego móvil en el cual al ir andando por la calle podamos ver y resolver preguntas o acertijos que otros usuarios han planteado. Esto proporcionara puntos que nos haran subir en diferentes rankings.
 ## Introducción descriptiva del proyecto
 El proyecto consta de:
-1. Servidor de login. Posiblemente sea un servidor o servicio compartido. En php o pyton.
-2. Servidor de geo-etiquetas. Se probara el lenguaje de programacion Phyton.
-3. Servidor de juego, una api PHP.
-4. Base de datos Mysql.
-5. Aplicación Android.
+* Servidor de login. Posiblemente sea un servidor o servicio compartido. En php o pyton.
+* Servidor de geo-etiquetas. Se probara el lenguaje de programacion Phyton.
+* Servidor de juego, una api PHP.
+* Base de datos Mysql.
+* Aplicación Android.
 
 # Arquitectura
 Se utilizará una arquitectura basada en microservicios.
