@@ -10,9 +10,11 @@ El proyecto consta de:
 3. Servidor de juego, una api PHP.
 4. Base de datos Mysql.
 5. Aplicación Android.
+
 # Arquitectura
 Se utilizará una arquitectura basada en microservicios.
-#Provisionamiento
+
+# Provisionamiento
 Se ha decidido aprovisionar el servidor utilizando chef-solo.
 Se provisionara: php, mysql, apache2, pyton3 y git.
 Podemos encontrar una guia en:
