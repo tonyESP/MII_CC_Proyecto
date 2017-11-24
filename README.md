@@ -17,7 +17,7 @@ Se utilizará una arquitectura basada en microservicios.
 # Despliege
 Para el despliege del proyecto se ha decidido utilizar una maquina virtual en Azure, con los recuros mas modestos. La imagen elegida es la de “UbuntuLTS”. Se desplegara en la región de azure “eastus”. 
 Para desplegar de manera sencilla se recomienda el uso de este [script]( https://github.com/tonyESP/MII_CC_Proyecto/blob/master/acopio.sh).
-La documentación de la automatización se puede encontrar en este [enlace]( https://github.com/tonyESP/MII_CC_Proyecto/automatizacion/README.md).
+La documentación de la automatización se puede encontrar en este [enlace](https://github.com/tonyESP/MII_CC_Proyecto/blob/master/automatizacion/README.md).
 
 # Provisionamiento
 Se ha decidido aprovisionar el servidor utilizando chef-solo.
