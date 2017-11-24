@@ -2,14 +2,11 @@
 
 # Crea el grupo de recursos
 az group create --name CCTony --location eastus
-#az group create --name group1 --location southcentralus
 
-# Crea la máquina virtual en el grupo de recursos y gruarda la salida con la 
-#  información de la máquina en el archivo tmpconexionfile
-#az vm create --resource-group CCTony --name remoteAzureTony --image UbuntuLTS --generate-ssh-keys > tmpconexionfile
+# Creamos la maquina virtual con este comando, con el grupo de recursos anterior.
 ipAddress=$(az vm create -g CCTony -n remoteAzureTony --image UbuntuLTS --generate-ssh-keys | jq -r '.publicIpAddress')
 
-echo Maquina virtual creada
+echo Datos de la maquina creada:
 echo -name : remoteAzureTony
 echo -ip : $ipAddress
 echo -------------------------
