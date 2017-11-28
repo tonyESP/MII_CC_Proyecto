@@ -30,7 +30,7 @@ Para desplegar de manera sencilla se recomienda el uso de este [script]( https:/
 
 La documentación de la automatización se puede encontrar en este [enlace](https://github.com/tonyESP/MII_CC_Proyecto/blob/master/automatizacion/README.md).
 
-Despliegue:52.170.116.3
+Despliegue:52.179.99.68
 
 # Provisionamiento
 
