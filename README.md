@@ -32,20 +32,21 @@ La documentación de la automatización se puede encontrar en este [enlace](http
 
 Despliegue:52.179.99.68
 
-# Provisionamiento
-
-Se ha decidido aprovisionar el servidor utilizando chef-solo.
-Se provisionara: php, mysql, apache2, pyton3 y git.
-Podemos encontrar una guia en:
-https://github.com/tonyESP/MII_CC_Proyecto/blob/master/provision/chef-solo/README.md
 
 # Orquestación
 
 Para orquestar las maquinas necesarias para este proyecto se ha utilizado vagrant en su version _"2.0.1"_. Se ha elegido esta herramienta por su sencillez y compativilidad con azure.
 
-Tanto el sistema operativo como el aprovisionamiento es el utilizado en las versiones anteriores. Podemos ver una guia de instalacion en el siguiente [enlace]().
+Tanto el sistema operativo como el aprovisionamiento es el utilizado en las versiones anteriores. Podemos ver una guia de instalacion en el siguiente [enlace](https://github.com/tonyESP/MII_CC_Proyecto/tree/master/orquestacion).
 
 Despliegue Vagrant:52.224.162.205
+
+# Provisionamiento
+
+Se ha decidido aprovisionar el servidor utilizando chef-solo.
+Se provisionara: php, mysql, apache2, pyton3 y git.
+Podemos encontrar una guia en:este [enlace](https://github.com/tonyESP/MII_CC_Proyecto/blob/master/provision/chef-solo/README.md).
+
 
 # Licencia
 
