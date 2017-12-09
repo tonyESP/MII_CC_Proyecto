@@ -1,0 +1,43 @@
+Vagrant.configure("2") do |config|
+  config.vm.define "remoteAzureTony" do |serviceObject|
+    serviceObject.vm.box = 'azure'
+
+    serviceObject.ssh.private_key_path = '~/.ssh/id_rsa'
+
+    serviceObject.vm.provider :azure do |azure, override|
+      #Set a territory
+      azure.location="westeurope"
+
+      azure.resource_group_name="remoteAzureTonyVNET"
+      azure.vm_name="remoteAzureTony"
+
+      azure.vm_image_urn="Canonical:UbuntuServer:16.04-LTS:latest"
+
+      azure.tenant_id = ENV['AZURE_TENANT_ID']
+      azure.client_id = ENV['AZURE_CLIENT_ID']
+      azure.client_secret = ENV['AZURE_CLIENT_SECRET']
+      azure.subscription_id = ENV['AZURE_SUBSCRIPTION_ID']
+    end
+  end
+
+  config.vm.define "remoteAzureTonyBD" do |serviceImage|
+    serviceImage.vm.box = 'azure'
+
+    serviceImage.ssh.private_key_path = '~/.ssh/id_rsa'
+
+    serviceImage.vm.provider :azure do |azure, override|
+      #Set a territory
+      azure.location="westeurope"
+
+      azure.resource_group_name="remoteAzureTonyVNET"
+      azure.vm_name="remoteAzureTonyBD"
+
+      azure.vm_image_urn="Canonical:UbuntuServer:16.04-LTS:latest"
+
+      azure.tenant_id = ENV['AZURE_TENANT_ID']
+      azure.client_id = ENV['AZURE_CLIENT_ID']
+      azure.client_secret = ENV['AZURE_CLIENT_SECRET']
+      azure.subscription_id = ENV['AZURE_SUBSCRIPTION_ID']
+    end
+  end
+end
