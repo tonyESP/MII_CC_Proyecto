@@ -72,10 +72,10 @@ end
 ### Ejecutamos vagrant.
 
 Solo queda ejecutar el archivo Vagrantfile y comprobar que todo está correcto. Para poder ejecutar correctamente la orquestación ejecutemos esta secuencia de comandos. Siendo el último, `vagrant up` el encargado de levantar las máquinas virtuales de forma remota.
-```
+```shell
 $ vagrant box add azure https://github.com/azure/vagrant-azure/raw/v2.0/dummy.box --provider azure
-$ vagrant plugin install vagrant-azure
-$ vagrant up --provider=azure
+$ vagrant plugin install vagrant-azure —plugin-version '2.0.0.pre6'
+$ vagrant up --no-parallel
 ```
 
 ### Provisión.
