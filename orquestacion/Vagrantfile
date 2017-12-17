@@ -1,43 +1,56 @@
+#Declaracion de variables
+az_tenant_id = ENV['AZURE_TENANT_ID']
+az_client_id = ENV['AZURE_CLIENT_ID']
+az_client_secret = ENV['AZURE_CLIENT_SECRET']
+az_subscription_id = ENV['AZURE_SUBSCRIPTION_ID']
+ssh_file = '~/.ssh/id_rsa'
+
 Vagrant.configure("2") do |config|
-  config.vm.define "remoteAzureTony" do |serviceObject|
-    serviceObject.vm.box = 'azure'
+  config.vm.define "m1" do |m1|
+    m1.vm.box = 'azure'
 
-    serviceObject.ssh.private_key_path = '~/.ssh/id_rsa'
+    m1.ssh.private_key_path = ssh_file
 
-    serviceObject.vm.provider :azure do |azure, override|
+    m1.vm.provider :azure do |azure, override|
       #Set a territory
       azure.location="westeurope"
 
-      azure.resource_group_name="remoteAzureTonyVNET"
-      azure.vm_name="remoteAzureTony"
+      azure.resource_group_name="Proyecto_VNET"
+      azure.vm_name="m1"
 
       azure.vm_image_urn="Canonical:UbuntuServer:16.04-LTS:latest"
 
-      azure.tenant_id = ENV['AZURE_TENANT_ID']
-      azure.client_id = ENV['AZURE_CLIENT_ID']
-      azure.client_secret = ENV['AZURE_CLIENT_SECRET']
-      azure.subscription_id = ENV['AZURE_SUBSCRIPTION_ID']
+      azure.tenant_id = az_tenant_id
+      azure.client_id = az_client_id
+      azure.client_secret = az_client_secret
+      azure.subscription_id = az_subscription_id
+    end
+    config.vm.provision "chef_solo" do |chef|
+      chef.cookbooks_path = "proyecto"
+    end
+  end 
+
+  config.vm.define "m2" do |m2|
+    m2.vm.box = 'azure'
+
+    m2.ssh.private_key_path = ssh_file
+
+    m2.vm.provider :azure do |azure, override|
+      #Set a territory
+      azure.location="westeurope"
+
+      azure.resource_group_name="Proyecto_VNET"
+      azure.vm_name="m2"
+
+      azure.vm_image_urn="Canonical:UbuntuServer:16.04-LTS:latest"
+
+      azure.tenant_id = az_tenant_id
+      azure.client_id = az_client_id
+      azure.client_secret = az_client_secret
+      azure.subscription_id = az_subscription_id
     end
   end
-
-  config.vm.define "remoteAzureTonyBD" do |serviceImage|
-    serviceImage.vm.box = 'azure'
-
-    serviceImage.ssh.private_key_path = '~/.ssh/id_rsa'
-
-    serviceImage.vm.provider :azure do |azure, override|
-      #Set a territory
-      azure.location="westeurope"
-
-      azure.resource_group_name="remoteAzureTonyVNET"
-      azure.vm_name="remoteAzureTonyBD"
-
-      azure.vm_image_urn="Canonical:UbuntuServer:16.04-LTS:latest"
-
-      azure.tenant_id = ENV['AZURE_TENANT_ID']
-      azure.client_id = ENV['AZURE_CLIENT_ID']
-      azure.client_secret = ENV['AZURE_CLIENT_SECRET']
-      azure.subscription_id = ENV['AZURE_SUBSCRIPTION_ID']
-    end
+  config.vm.provision "chef_solo" do |chef|
+    chef.cookbooks_path = "proyecto"
   end
 end
