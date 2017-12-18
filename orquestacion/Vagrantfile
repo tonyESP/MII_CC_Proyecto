@@ -18,7 +18,7 @@ Vagrant.configure("2") do |config|
       azure.resource_group_name="Proyecto_VNET"
       azure.vm_name="m1"
 
-      azure.vm_image_urn="Canonical:UbuntuServer:16.04-LTS:latest"
+      azure.vm_image_urn="OpenLogic:CentOS:7.3:latest"
 
       azure.tenant_id = az_tenant_id
       azure.client_id = az_client_id
@@ -26,7 +26,7 @@ Vagrant.configure("2") do |config|
       azure.subscription_id = az_subscription_id
     end
     config.vm.provision "chef_solo" do |chef|
-      chef.cookbooks_path = "proyecto"
+      chef.cookbooks_path = "provision"
     end
   end 
 
@@ -42,7 +42,7 @@ Vagrant.configure("2") do |config|
       azure.resource_group_name="Proyecto_VNET"
       azure.vm_name="m2"
 
-      azure.vm_image_urn="Canonical:UbuntuServer:16.04-LTS:latest"
+      azure.vm_image_urn="SUSE:openSUSE-Leap:42.2:latest"
 
       azure.tenant_id = az_tenant_id
       azure.client_id = az_client_id
@@ -51,6 +51,6 @@ Vagrant.configure("2") do |config|
     end
   end
   config.vm.provision "chef_solo" do |chef|
-    chef.cookbooks_path = "proyecto"
+    chef.cookbooks_path = "provision"
   end
 end

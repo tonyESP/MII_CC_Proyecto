@@ -2,10 +2,9 @@
 
 ## Definición de la arquitectura.
 
-Se van a levantar 2 máquinas virtuales. La primera "remoteAzureTony
-", contendrá los servidores rest. La segunda "remoteAzureTonyBD
-", contendrá las bases de datos. 
-El sistema operativo elegido para ambas es: Ubuntu LTS, ya que se han consultado benchmarks entre debían, centos y Ubuntu como servidores LAMP y son todos similares. Así que se Utilizará Ubuntu LTS 16.4 por afinidad con el mismo.
+Se van a levantar 2 máquinas virtuales. La primera "m1", contendrá los servidores rest. La segunda "m2", contendrá las bases de datos. 
+El sistema operativo elegido para "m1": CentOS:7.3, ya que se han consultado benchmarks entre debían, centos y Ubuntu como servidores LAMP y centos salía ganando. 
+El sistema operativo elegido para "m2": openSUSE Leap 42.2, porque al realizar una prueba de mostrar 20.000 registros de una base de datos en MySQL de prueba, entre openSUSE y centos 7.3, openSUSE tardo unos segundos menos.
 
 ### Descarguemos vagrant.
 
@@ -24,47 +23,60 @@ Solo tenemos que seguir los siguientes pasos:
 ### El archivo vagrantFile.
 
 ```ruby
+#Declaracion de variables
+az_tenant_id = ENV['AZURE_TENANT_ID']
+az_client_id = ENV['AZURE_CLIENT_ID']
+az_client_secret = ENV['AZURE_CLIENT_SECRET']
+az_subscription_id = ENV['AZURE_SUBSCRIPTION_ID']
+ssh_file = '~/.ssh/id_rsa'
+
 Vagrant.configure("2") do |config|
-  config.vm.define "remoteAzureTony" do |serviceObject|
-    serviceObject.vm.box = 'azure'
+  config.vm.define "m1" do |m1|
+    m1.vm.box = 'azure'
 
-    serviceObject.ssh.private_key_path = '~/.ssh/id_rsa'
+    m1.ssh.private_key_path = ssh_file
 
-    serviceObject.vm.provider :azure do |azure, override|
+    m1.vm.provider :azure do |azure, override|
       #Set a territory
       azure.location="westeurope"
 
-      azure.resource_group_name="remoteAzureTonyVNET"
-      azure.vm_name="remoteAzureTony"
+      azure.resource_group_name="Proyecto_VNET"
+      azure.vm_name="m1"
 
-      azure.vm_image_urn="Canonical:UbuntuServer:16.04-LTS:latest"
+      azure.vm_image_urn="OpenLogic:CentOS:7.3:latest"
 
-      azure.tenant_id = ENV['AZURE_TENANT_ID']
-      azure.client_id = ENV['AZURE_CLIENT_ID']
-      azure.client_secret = ENV['AZURE_CLIENT_SECRET']
-      azure.subscription_id = ENV['AZURE_SUBSCRIPTION_ID']
+      azure.tenant_id = az_tenant_id
+      azure.client_id = az_client_id
+      azure.client_secret = az_client_secret
+      azure.subscription_id = az_subscription_id
+    end
+    config.vm.provision "chef_solo" do |chef|
+      chef.cookbooks_path = "proyecto"
+    end
+  end 
+
+  config.vm.define "m2" do |m2|
+    m2.vm.box = 'azure'
+
+    m2.ssh.private_key_path = ssh_file
+
+    m2.vm.provider :azure do |azure, override|
+      #Set a territory
+      azure.location="westeurope"
+
+      azure.resource_group_name="Proyecto_VNET"
+      azure.vm_name="m2"
+
+      azure.vm_image_urn="SUSE:openSUSE-Leap:42.2:latest"
+
+      azure.tenant_id = az_tenant_id
+      azure.client_id = az_client_id
+      azure.client_secret = az_client_secret
+      azure.subscription_id = az_subscription_id
     end
   end
-
-  config.vm.define "remoteAzureTonyBD" do |serviceImage|
-    serviceImage.vm.box = 'azure'
-
-    serviceImage.ssh.private_key_path = '~/.ssh/id_rsa'
-
-    serviceImage.vm.provider :azure do |azure, override|
-      #Set a territory
-      azure.location="westeurope"
-
-      azure.resource_group_name="remoteAzureTonyVNET"
-      azure.vm_name="remoteAzureTonyBD"
-
-      azure.vm_image_urn="Canonical:UbuntuServer:16.04-LTS:latest"
-
-      azure.tenant_id = ENV['AZURE_TENANT_ID']
-      azure.client_id = ENV['AZURE_CLIENT_ID']
-      azure.client_secret = ENV['AZURE_CLIENT_SECRET']
-      azure.subscription_id = ENV['AZURE_SUBSCRIPTION_ID']
-    end
+  config.vm.provision "chef_solo" do |chef|
+    chef.cookbooks_path = "proyecto"
   end
 end
 ```
@@ -80,4 +92,7 @@ $ vagrant up --no-parallel
 
 ### Provisión.
 
-Tal y como se ha hecho anteriormente, para provisionar las máquinas virtuales se deberá. Más información en este [enlace](https://github.com/tonyESP/MII_CC_Proyecto/tree/master/provision/chef-solo)
+Tal y como se ha hecho anteriormente, se utiliza Chef-solo para el provisionamiento. Más información en este [enlace](https://github.com/tonyESP/MII_CC_Proyecto/tree/master/provision/chef-solo)
+
+
+![ejecucionvagrantfile](https://user-images.githubusercontent.com/6977775/34085887-deca85c2-e396-11e7-8822-a47878df7a58.PNG)
