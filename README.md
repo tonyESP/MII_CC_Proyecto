@@ -39,7 +39,7 @@ Para orquestar las maquinas necesarias para este proyecto se ha utilizado vagran
 
 Tanto el sistema operativo como el aprovisionamiento es el utilizado en las versiones anteriores. Podemos ver una guia de instalacion en el siguiente [enlace](https://github.com/tonyESP/MII_CC_Proyecto/tree/master/orquestacion).
 
-Despliegue Vagrant:52.224.162.205
+Despliegue Vagrant:52.232.67.32
 
 # Provisionamiento
 
