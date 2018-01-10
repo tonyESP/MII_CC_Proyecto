@@ -45,7 +45,7 @@ Despliegue Vagrant:52.232.67.32
 
 Docker automatiza el despliegue de aplicaciones en contenedores, abstrayendo la Virtualización a nivel de sistema operativo.
 Se ha instalado una imagen de debían en su versión estable, y se le ha provisionado mediante el Dockerfile con: php, php-mysql, y apache. Aparte de proporcionar un pequeño servicio de prueba que mostrará : ‘ {“status”:”ok”} ’.
-Podemos ver más información de cómo se ha instalado en el siguiente [Enlace]().
+Podemos ver más información de cómo se ha instalado en el siguiente [Enlace](https://github.com/tonyESP/MII_CC_Proyecto/blob/master/contenedores/README.md).
 - Contenedor: https://serviciotony.azurewebsites.net/
 - Dockerhub: https://hub.docker.com/r/tonyesp/mii_cc_proyecto/
 
