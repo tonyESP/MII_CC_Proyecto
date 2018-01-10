@@ -41,6 +41,15 @@ Tanto el sistema operativo como el aprovisionamiento es el utilizado en las vers
 
 Despliegue Vagrant:52.232.67.32
 
+# Contenedores *(*Docker*)*
+
+Docker automatiza el despliegue de aplicaciones en contenedores, abstrayendo la Virtualización a nivel de sistema operativo.
+Se ha instalado una imagen de debían en su versión estable, y se le ha provisionado mediante el Dockerfile con: php, php-mysql, y apache. Aparte de proporcionar un pequeño servicio de prueba que mostrará : ‘ {“status”:”ok”} ’.
+Podemos ver más información de cómo se ha instalado en el siguiente [Enlace]().
+- Contenedor: https://serviciotony.azurewebsites.net/
+- Dockerhub: https://hub.docker.com/r/tonyesp/mii_cc_proyecto/
+
+
 # Provisionamiento
 
 Se ha decidido aprovisionar el servidor utilizando chef-solo.
