@@ -50,7 +50,7 @@ CMD ["/usr/sbin/apache2ctl", "-D", "FOREGROUND"]
 Deberemos ejecutar los siguientes comandos:
 ```bash
 # creamos un nombre de usuario / contraseña
-az webapp deployment user set --user-name tonyesp --password Azure123456
+az webapp deployment user set --user-name tonyesp --password $key
 
 # Creamos un grupo de recursos
 az group create --name MII_CC --location "West Europe"
