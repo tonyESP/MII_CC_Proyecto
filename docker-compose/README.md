@@ -9,8 +9,14 @@ Pasos para crear la maquina en azure y desplegar el docker compose del repositor
 ssh azureuser@mypublicdns.eastus.cloudapp.azure.com
 docker-compose --version
 ```
+ - Verificar que tenemos instalado docker-compose en la 
+version 1.18.0".
  - Clonamos el repositorio y ejecutamos __$ docker-compose up__
  - Acceder al servicio mediante el navegador "ip:3000/apidoc". Se mostrará la la documentación de la api rest.
+
+Veamos como funciona el framework que se ha instalado:
+> ![seleccion_090](https://user-images.githubusercontent.com/6977775/35769610-c8223594-090d-11e8-9109-54d76721e2e3.png)
+
 
 Apuntes: [enlace.](http://jj.github.io/CC/documentos/temas/Contenedores)
 Guia node: [enlace.](https://nodejs.org/en/docs/guides/nodejs-docker-webapp)

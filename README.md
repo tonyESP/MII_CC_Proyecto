@@ -49,6 +49,12 @@ Podemos ver más información de cómo se ha instalado en el siguiente [Enlace](
 - Contenedor: https://serviciotony.azurewebsites.net/
 - Dockerhub: https://hub.docker.com/r/tonyesp/mii_cc_proyecto/
 
+# Docker-Compose.
+
+La orquestación de la aplicación se ha realizado mediante docker-composer. Levantando una maquina con node y otra con mongodb. Ambas imágenes son las oficiales para cada entorno. 
+Podemos encontrar los detalles para su lanzamiento en azure en el siguiente [manual]().
+
+
 
 # Provisionamiento
 
