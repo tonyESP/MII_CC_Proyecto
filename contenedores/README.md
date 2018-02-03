@@ -59,7 +59,7 @@ az group create --name MII_CC --location "West Europe"
 az appservice plan create --name MII_CC_Plan --resource-group MII_CC --sku S1 --is-linux
 
 # Creamos el contenedor enlazándolo con el dockerhub correspondiente.
-az webapp create --resource-group MII_CC --plan MII_CC_Plan --name servicioTony --deployment-container-image-name tonyesp/dockertesting
+az webapp create --resource-group MII_CC --plan MII_CC_Plan --name servicioTony --deployment-container-image-name tonyesp/MII_CC_proyecto
 ```
 
 Veamos el resultado:

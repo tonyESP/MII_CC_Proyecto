@@ -1,0 +1,16 @@
+version: '2'
+
+services:
+  myapp:
+    build: ./docker-compose #node:boron, imagen oficial de node
+    ports:
+      - "3000:3000"
+    links:
+      - database 
+    volumes:
+      - .:/usr/src/app
+    depends_on:
+      - database
+      
+  database: # base de datos mongo
+    image: mongo # imagen oficial
