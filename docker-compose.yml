@@ -4,7 +4,7 @@ services:
   myapp:
     build: ./docker-compose #node:boron, imagen oficial de node
     ports:
-      - "3000:3000"
+      - "80:3000"
     links:
       - database 
     volumes:

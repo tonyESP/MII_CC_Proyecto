@@ -54,7 +54,7 @@ Podemos ver más información de cómo se ha instalado en el siguiente [Enlace](
 La orquestación de la aplicación se ha realizado mediante docker-composer. Levantando una maquina con node y otra con mongodb. Ambas imágenes son las oficiales para cada entorno. 
 Podemos encontrar los detalles para su lanzamiento en azure en el siguiente [manual](https://github.com/tonyESP/MII_CC_Proyecto/blob/master/docker-compose/README.md).
 
- - Hito6: http://dnshto6cc.eastus.cloudapp.azure.com:3000/
+ - Hito6: hito6tonycc.eastus.cloudapp.azure.com
 
 # Provisionamiento
 
